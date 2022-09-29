@@ -1,0 +1,239 @@
+
+*{
+   
+    box-sizing: border-box;
+}
+
+html,body{
+    padding: 0%;
+    margin: 0%;
+    height: 100%;
+    width: 100%;
+}
+:root{
+    --red: red;
+}
+.flex-row{
+  
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+}
+.theme-dark{
+   --bg-top-image: 0 0 url(./images/bg-desktop-dark.jpg) no-repeat;
+   --main-bg:hsl(235, 21%, 11%);
+   --todo-bg: hsl(235, 24%, 19%);
+   --todo-shadow:hsl(237, 14%, 26%);
+   --font-color:hsl(234, 39%, 85%);
+   --font-color-hover: hsl(221,62%,52%);
+}
+.theme-light{
+    --bg-top-image: 0 0 url(./images/bg-desktop-light.jpg) no-repeat;
+    --main-bg:hsl(0, 0%, 98%);
+    --todo-bg: hsl(236, 33%, 92%);
+    --todo-shadow:hsl(235, 19%, 35%);
+    --font-color: hsl(236, 9%, 61%);
+    --font-color-hover: hsl(221,62%,52%);
+}
+body{
+     font : 400 18px/1  'Josefin Sans', sans-serf;
+    background:var(--bg-top-image);
+    background-color: var(--main-bg);
+     background-size: contain;
+     color: var(--font-color);
+}
+header, main{
+    max-width: 550px;
+    margin:  0 auto;
+}
+header{
+    justify-content: space-between;
+}
+h1{
+    font-weight: 700px;
+    font-size: 2.5rem;
+    color: var(--font-color);
+    letter-spacing: .5rem;
+}
+.theme-block #theme{
+    display: none;
+}
+.theme-block #theme + label::before{
+    content: '';
+    background: url(./images/icon-sun.svg);
+    display: block;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+}
+.theme-block #theme:checked + label::before{
+    background: url(./images/icon-moon.svg);
+}
+.add-new-item{
+    background: var(--todo-bg);
+    height: 65px;
+    border-radius: 5px;
+}
+.add-new-item #additem{
+    font : 400 18px/1  'Josefin Sans', sans-serf;
+     background: transparent;
+     color: var(--font-color);
+     border: 0;
+     outline: 0;
+     width: 80%;
+     height: 50px;
+     padding-left: 10px;
+}
+.add-new-item span{
+    width:25px;
+    height: 25px;
+    border: 1px solid var(--font-color);
+    display: block;
+    border-radius: 50px;
+    margin-left: 10px;
+}
+.content{
+    margin-top: 100px;
+    background: var(--todo-bg);
+    box-shadow: 0 5px 25px -12px   var(--todo-shadow);
+    border-radius: 5px;
+}
+ul{
+    list-style-type: none;
+    padding: 0%;
+    margin: 0%;
+}
+ul li{
+    padding:0%;
+    min-height: 65px;
+    border-bottom: 1px solid var(--font-color) ;
+    position: relative;
+}
+ul li input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+}
+ul li label{
+    position: relative;
+    padding: 0 0 0 35px;
+
+}
+.checkmark{
+    position: absolute;
+    top:-5px;
+    left:10px; 
+    height: 25px;
+    width: 25px;
+
+}
+ul li input[type="checkbox"] ~ .checkmark{
+    border: 1px solid #fff;
+    border-radius: 50px;
+
+}
+ul li input[type="checkbox"] ~ .checkmark:hover{
+    border: 0;
+    padding: 1px;
+    background: linear-gradient(135deg,hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+}
+ul li input[type="checkbox"] ~ .checkmark:hover ::before{
+     content: '';
+     width: 23px;
+     height: 23px;
+     border-radius: 50px;
+     background: var(--todo-bg);
+     display: block;
+
+}
+ul li input[type="checkbox"]:checked ~ .checkmark{
+    background: center url(./images/icon-check.svg) no-repeat, linear-gradient(135deg,hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+ul li input[type="checkbox"]:checked ~ .text{
+    text-decoration: line-through;
+}
+.remove{
+    background: url(./images/icon-cross.svg) no-repeat;
+    width: 18px;
+    height: 18px;
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top:20px;
+
+}
+ul li:hover .remove{
+    display: block;
+}
+ ul li.hidden{
+    display: none;
+ }
+.bottom-item{
+     
+     justify-content: space-between;
+     height: 65px;
+     font-size: 1rem    ;
+    
+}
+.filter input[type="radio"] {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+   height: 0;
+   width: 0;
+}
+
+.filter label{
+    cursor: pointer;
+    padding: 0 5px;
+}
+.filter label:hover{
+    color: var(--font-color-hover);
+}
+.filter input[type="radio"]:checked ~ span{
+    color: hsl(221,62%,52%);
+
+}
+.clear-completed{
+    color: var(--font-color);
+     cursor: pointer;
+}
+.clear-completed:hover{
+    color: var(--font-color-hover);
+}
+
+
+
+
+
+
+
+
+
+.attribution { 
+    font-size: 0.80rem; 
+    font-weight: 500px;
+    text-align: center;
+    width:100%;
+    height: 100px;
+    background: var(--todo-bg);
+    margin-top: 30px;
+    padding-top: 50px;
+
+
+}
+ .attribution a { 
+    color: hsl(228, 45%, 44%); 
+     text-decoration: none;
+     color:var(--font-color)
+    
+}
+.attribution a:hover{
+    font-weight: 700;
+    color: var(--font-color-hover);
+}

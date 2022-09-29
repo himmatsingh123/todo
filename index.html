@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Todo</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body  class="theme-dark">
+
+  <header class="flex-row">
+    <h1>TODO</h1>
+    <div class="theme-block">
+       <input type="checkbox" id="theme" name="theme">
+       <label for="theme"></label>
+    </div>
+  </header>
+  <main>
+    <div class="add-new-item  flex-row">
+      <span></span>
+      <input type="text" placeholder="Create a new To Do"  name="additem" id="additem">
+    </div>
+    <section class="content" >
+      <ul>
+        <li class="flex-row drag-item" draggable="true">
+          <label class="list-item">
+          <input type="checkbox" name="todoitem">
+          <span class="checkmark"></span>
+          <span class="text">"Welcome to TO-DO website.."</span>      
+        </label>
+        <span class="remove"></span>
+        </li>
+  
+      </ul>
+    </section>
+    <div class="bottom-item  flex-row content"> 
+      <div class="items-left"><span>2</span> items left</div>
+   
+        <div class="filter  flex-row">
+          <label>
+          <input type="radio" name="filter" checked id="all" >
+          <span >All</span>
+        </label>
+        <label>
+          <input type="radio" name="filter" checked id="active" >
+          <span for="">Active</span>
+        </label>
+          <label>
+            <input type="radio" name="filter" checked id="completed" >
+            <span>completed</span>
+          </label>
+        </div>
+        <span class="clear-completed">Clear Completed</span>
+      </div>
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
+    Coded by <a href="https://www.linkedin.com/in/himmat-singh2711/">Himmat Singh</a>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
